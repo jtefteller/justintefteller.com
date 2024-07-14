@@ -155,7 +155,6 @@ function Contact() {
         <span className="ml-3">Contact Me</span>
       </h2>
       <div className="mt-6 flex">
-
         <input
           name="firstName"
           type="input"
@@ -170,10 +169,10 @@ function Contact() {
           placeholder="Last Name"
           aria-label="Last Name"
           required
-          className="min-w-0 ml-1 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
+          className="ml-1 min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
         />
       </div>
-      <div className="flex mt-2">
+      <div className="mt-2 flex">
         <input
           name="emailAddress"
           type="email"
@@ -183,8 +182,8 @@ function Contact() {
           className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
         />
       </div>
-      <div className="flex mt-2">
-        <input 
+      <div className="mt-2 flex">
+        <input
           name="message"
           type="input"
           placeholder="Message"
@@ -193,9 +192,9 @@ function Contact() {
           className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
         />
       </div>
-        <Button type="submit" className="flex-none mt-2">
-          Send
-        </Button>
+      <Button type="submit" className="mt-2 flex-none">
+        Send
+      </Button>
     </form>
   )
 }
@@ -220,14 +219,14 @@ function Resume() {
     {
       company: 'BMW',
       title: 'Account Manager',
-      start: "2019",
-      end: "2020",
+      start: '2019',
+      end: '2020',
     },
     {
       company: 'LifeTime Fitness',
       title: 'Assistant Sales Manager',
-      start: "2017",
-      end: "2019",
+      start: '2017',
+      end: '2019',
     },
   ]
 
@@ -271,8 +270,12 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="https://jtefteller.github.io/" variant="secondary" className="group mt-6 w-full">
-        Download CV
+      <Button
+        href="https://jtefteller.github.io/resume"
+        variant="secondary"
+        className="group mt-6 w-full"
+      >
+        Full Resume
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
     </div>
@@ -289,7 +292,7 @@ function Photos() {
           <div
             key={image.src}
             className={clsx(
-              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl'
             )}
           >
             <Image
@@ -310,8 +313,8 @@ export default function Home({ articles }) {
     <>
       <Head>
         <title>
-          Justin Tefteller - Software engineer, entrepreneur, and amateur drone pilot
-
+          Justin Tefteller - Software engineer, entrepreneur, and amateur drone
+          pilot
         </title>
         <meta
           name="description"
@@ -328,9 +331,9 @@ export default function Home({ articles }) {
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             Hi! my name is Justin, I am a passionate software engineer and
-            entrepreneur who lives in Fayetteville, Arkansas. I
-            work at WP Engine, where I develop secure, scalable and
-            reliable software that helps people build better websites.
+            entrepreneur who lives in Fayetteville, Arkansas. I work at WP
+            Engine, where I develop secure, scalable and reliable software that
+            helps people build better websites.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
