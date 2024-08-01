@@ -6,6 +6,7 @@ export default async function handler(req, res) {
   let message
   try {
     message = contactMessage.parse(req.body)
+    message.website = 'https://justintefteller.com'
   } catch (error) {
     return res.status(400).json({ error: error.errors })
   }
