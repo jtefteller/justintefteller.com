@@ -1,0 +1,27 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import { Button } from '@/components/Button'
+import { Video } from '@/components/Video'
+
+export const article = {
+  author: 'Justin Tefteller',
+  date: '2022-11-29',
+  title: 'Discovering Dalle-2 from OpenAI',
+  description:
+    'A look at the new Dalle-2 model from OpenAI and how it can be used to generate images from text.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+A look at the new Dalle-2 model from OpenAI and how it can be used to generate images from text.
+If you haven't heard, OpenAI recently released a new version of their Dalle model. Dalle is a model that can generate images from text. It's a pretty cool model, and I've been playing around with it a bit. I thought I'd share some of my findings.
+
+## Video 
+<Video src="https://www.youtube.com/embed/-kFlmCUdq9o" title="YouTube video player" />
+
+<Button href="https://www.youtube.com/channel/UCZV33W4G2P8TU1BeQPh8RIA" >Visit Channel</Button>

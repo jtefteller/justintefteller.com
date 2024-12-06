@@ -1,0 +1,30 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import { Button } from '@/components/Button'
+import { Video } from '@/components/Video'
+
+export const article = {
+  author: 'Justin Tefteller',
+  date: '2022-09-04',
+  title: 'New DJI Mini 3 Pro Drone',
+  description:
+    'The new DJI Mini 3 Pro drone is the best drone on the market. It has a 4K camera, 45 minute flight time, and 10km range.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+The new DJI Mini 3 Pro drone is the best drone on the market. It has a 4K camera, 45 minute flight time, and 10km range.
+It also has a 3-axis gimbal, 12MP photos, and 30fps video. It takes stunning photos and videos. It is also very easy to fly. 
+Here is a look at some footage from the new DJI Mini 3 Pro drone.
+
+## Video 
+<Video src="https://www.youtube.com/embed/grFHitKe0qc" title="YouTube video player" />
+
+<Button href="https://www.youtube.com/channel/UCZV33W4G2P8TU1BeQPh8RIA" >Visit Channel</Button>
+
+
+

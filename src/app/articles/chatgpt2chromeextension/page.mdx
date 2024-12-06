@@ -1,0 +1,24 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import { Button } from '@/components/Button'
+import { Video } from '@/components/Video'
+
+export const article = {
+   author: 'Justin Tefteller',
+  date: '2023-01-07',
+  title: 'ChatGPT Chrome Extension using TailwindCSS and React',
+  description: "A fun ChatGPT Chrome Extension",
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+A fun Chrome Extension I made to generate text and summaries using ChatGPT. I used TailwindCSS and React to build it. You can find the source code on my GitHub page.
+
+## Video 
+<Video src="https://www.youtube.com/embed/GmEfKFI2Ki0" title="YouTube video player" />
+
+<Button href="https://www.youtube.com/channel/UCZV33W4G2P8TU1BeQPh8RIA" >Visit Channel</Button>
