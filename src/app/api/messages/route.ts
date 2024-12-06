@@ -1,15 +1,15 @@
-import { NextApiRequest, NextApiResponse } from 'next'
 import { contactMessage } from '@/lib/validation'
+import { NextRequest, NextResponse } from 'next/server'
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: NextRequest) {
   if (req.method !== 'POST')
-    return res.status(405).json({ error: 'Method not allowed' })
+    return NextResponse.json({ error: 'Method not allowed' }, { status: 405 })
   let message
   try {
-    message = contactMessage.parse(req.body)
+    message = contactMessage.parse(await req.json())
     message.website = 'https://justintefteller.com'
   } catch (error: any) {
-    return res.status(400).json({ error: error.errors })
+    return NextResponse.json({ error: error.errors }, { status: 400 })
   }
 
   try {
@@ -23,16 +23,18 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
     )
     if (!response.ok) {
       console.error(response)
-      return res
-        .status(500)
-        .json({ error: 'An error occurred while sending the message' })
+      return NextResponse.json(
+        { error: 'An error occurred while sending the message' },
+        { status: 500 },
+      )
     }
   } catch (error) {
     console.error(error)
-    return res
-      .status(500)
-      .json({ error: 'An error occurred while sending the message' })
+    return NextResponse.json(
+      { error: 'An error occurred while sending the message' },
+      { status: 500 },
+    )
   }
 
-  return res.status(200).json({ error: null })
+  return NextResponse.json({ error: null }, { status: 200 })
 }
