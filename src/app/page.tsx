@@ -308,7 +308,7 @@ export default async function Home() {
             Senior software engineer, mentor and entrepreneur.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Justin, a senior software engineer, mentor, and entrepreneur
+            I’m Justin, a senior software engineer, mentor and entrepreneur
             based in Fayetteville. I work at WP Engine, where I develop secure,
             scalable and reliable software that helps people build better
             websites.
