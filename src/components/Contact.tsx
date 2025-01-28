@@ -33,9 +33,9 @@ export function Contact() {
 
     // Get data from the form.
     const data = {
-      firstName: event.target.firstName.value,
-      lastName: event.target.lastName.value,
-      emailAddress: event.target.emailAddress.value,
+      first_name: event.target.first_name.value,
+      last_name: event.target.last_name.value,
+      email: event.target.email.value,
       message: event.target.message.value,
     }
 
@@ -76,7 +76,7 @@ export function Contact() {
       </h2>
       <div className="mt-6 flex">
         <input
-          name="firstName"
+          name="first_name"
           type="input"
           placeholder="First Name"
           aria-label="First Name"
@@ -84,7 +84,7 @@ export function Contact() {
           className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10"
         />
         <input
-          name="lastName"
+          name="last_name"
           type="input"
           placeholder="Last Name"
           aria-label="Last Name"
@@ -94,7 +94,7 @@ export function Contact() {
       </div>
       <div className="mt-2 flex">
         <input
-          name="emailAddress"
+          name="email"
           type="email"
           placeholder="Email address"
           aria-label="Email address"
