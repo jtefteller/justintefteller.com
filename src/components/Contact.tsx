@@ -43,7 +43,7 @@ export function Contact() {
     const JSONdata = JSON.stringify(data)
 
     // API endpoint where we send form data.
-    const endpoint = '/gmail/send_message'
+    const endpoint = '/api/messages'
 
     // Form the request for sending data to the server.
     const options = {
