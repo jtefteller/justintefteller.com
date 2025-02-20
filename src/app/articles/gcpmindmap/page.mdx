@@ -1,0 +1,122 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import mindMap from '@/images/gcpmindmap.png'
+import iamAccessControlTable from '@/images/iam-access-control-table.png'
+
+export const article = {
+  author: 'Justin Tefteller',
+  date: '2025-02-20',
+  title: 'Understanding the Google Cloud Platform (GCP) Identity and Access Management (IAM) System',
+  description: 'Diving into the Google Cloud Platform (GCP) Identity and Access Management (IAM) system and its related components.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+<Image src={mindMap} alt="Google Cloud Platform (GCP) Identity and Access Management (IAM) System" />
+
+## Understanding Google Cloud IAM: Roles, Permissions, and Resource Management
+
+Google Cloud Platform (GCP) offers a powerful Identity and Access Management (IAM) system that helps organizations manage who can do what on which resources. Whether you’re a beginner exploring cloud security or an experienced engineer setting up access controls, understanding IAM is crucial for secure and efficient cloud operations.
+
+This post will break down IAM concepts using a structured hierarchy of identities, roles, permissions, and resources, ensuring clarity on how GCP manages access control.
+
+## What is Google Cloud IAM?
+
+Google Cloud IAM (Identity and Access Management) is a security framework that lets administrators define who (identities) can access what (resources) and perform which actions (permissions) within a Google Cloud project.
+
+IAM follows a least privilege model, meaning users and services should only be given the permissions necessary to perform their tasks.
+
+Key Components of Google Cloud IAM
+
+To fully grasp IAM, you need to understand its three core elements:
+	1.	Identities (Who?) – The users or services that need access.
+	2.	Roles & Permissions (What Can They Do?) – Defines allowed actions.
+	3.	Resource Hierarchy (Where Can They Do It?) – The structure governing access.
+
+Let’s explore these one by one.
+
+## Identities: Who Can Access GCP?
+
+GCP allows different types of identities to interact with its resources:
+	-	Google Accounts – Personal accounts (e.g., user@gmail.com).
+	-	Google Groups – Collections of accounts for easier permission management.
+	-	Service Accounts – Machine accounts used by applications or services.
+	-	Cloud Identity Domains – Enterprise authentication for multiple users.
+	-	Principals – A general term for entities (users, groups, or services) with permissions.
+
+Each of these identities can be assigned roles that determine what they are allowed to do.
+
+## Roles & Permissions: What Can They Do?
+
+IAM roles define what actions an identity can perform. Permissions are grouped into roles to simplify access control.
+
+Types of IAM Roles
+
+GCP provides three main types of roles:
+
+### Basic Roles (Predefined)
+
+These roles are the simplest and broadest, available by default:
+	-	Owner – Full control, including billing and user management.
+	-	Editor – Can create, modify, and delete resources.
+	-	Viewer – Read-only access to resources.
+	-	Billing Admin – Can manage billing but has no resource access.
+
+### Predefined Roles
+	-	Google provides more fine-grained predefined roles that bundle specific permissions (e.g., Compute Engine Admin, Storage Viewer, Pub/Sub Publisher).
+
+### Custom Roles
+	-	Organizations can create custom roles with specific permissions, tailored to their security needs.
+
+### Special Roles
+	-	Some roles have unique responsibilities, like:
+	-	Project Creator – Can create new projects.
+	-	Organization Policy Administrator – Manages security policies at the organizational level.
+
+## Resource Hierarchy: Where Can They Do It?
+
+GCP organizes resources in a hierarchical structure, allowing permissions to inherit from higher levels:
+	1.	🔝 Organization Node
+		-	The top-level entity, where security policies are defined.
+	2.	📂 Folders
+		-	Help group related projects for policy inheritance.
+	3.	📁 Projects
+		-	The fundamental unit where resources live.
+		-	Each project has:
+		-	Project ID – Unique & immutable.
+		-	Project Name – User-created & mutable.
+		-	Project Number – Unique & immutable.
+	4.	🔧 Resources
+		-	The actual Google Cloud services (Compute Engine, BigQuery, Storage, Kubernetes, etc.).
+		-	IAM permissions ultimately determine who can access and modify resources.
+
+## Networking & Security: IAM’s Role in Infrastructure
+
+Beyond user access, IAM is crucial for securing network resources:
+	-	Virtual Private Cloud (VPC) – Controls segmentation of cloud networks.
+	-	Firewall Rules – Define allowed and blocked network traffic.
+	-	Static Routes – Ensure controlled traffic forwarding.
+
+By setting up IAM correctly, organizations can securely manage both user access and infrastructure.
+
+IAM Access Control Table: Who Gets What?
+
+<Image src={iamAccessControlTable} alt="IAM Access Control Table" />
+
+Final Thoughts: Mastering IAM for Secure GCP Management
+
+Google Cloud IAM is an essential framework for controlling access to cloud resources safely and efficiently. By properly understanding identities, roles, and resource hierarchy, organizations can ensure least privilege access, reducing security risks and improving operational efficiency.
+
+## Key Takeaways
+
+- ✅ Always follow the principle of least privilege – Assign the minimum permissions needed.
+- ✅ Use predefined roles when possible – They cover most use cases securely.
+- ✅ Structure your projects and folders carefully – Hierarchical permissions affect access control.
+- ✅ Regularly audit IAM roles – Ensure users only have the access they require.
+
+By implementing these best practices, you can securely manage access in Google Cloud and prevent unauthorized actions.
