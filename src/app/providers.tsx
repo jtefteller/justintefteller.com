@@ -3,6 +3,8 @@
 import { createContext, useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { ThemeProvider, useTheme } from 'next-themes'
+import posthog from 'posthog-js'
+import { PostHogProvider as PHProvider } from 'posthog-js/react'
 
 function usePrevious<T>(value: T) {
   let ref = useRef<T>()
@@ -52,4 +54,14 @@ export function Providers({ children }: { children: React.ReactNode }) {
       </ThemeProvider>
     </AppContext.Provider>
   )
+}
+export function PostHogProvider({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY ?? '', {
+      api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+      person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
+    })
+  }, [])
+
+  return <PHProvider client={posthog}>{children}</PHProvider>
 }
