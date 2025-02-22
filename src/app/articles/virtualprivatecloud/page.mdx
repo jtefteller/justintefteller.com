@@ -1,0 +1,164 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import mindMap from '@/images/vpcmindmap.png'
+import iamAccessControlTable from '@/images/iam-access-control-table.png'
+import { Comments } from '@/components/Comments'
+
+export const article = {
+  author: 'Justin Tefteller',
+  date: '2025-02-21',
+  title: 'Understanding Google Cloud Virtual Private Cloud (VPC): A Beginner’s Guide',
+  description: 'Diving into the Google Cloud Platform (GCP) Virtual Private Cloud (VPC) system and its related components.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+<Image src={mindMap} alt="Google Cloud Virtual Private Cloud (VPC)" />
+
+## Understanding Google Cloud Virtual Private Cloud (VPC): A Beginner’s Guide
+
+Cloud networking is at the core of any cloud-based infrastructure. Whether you’re hosting applications, storing data, or running compute-heavy workloads, a Virtual Private Cloud (VPC) is the backbone of your network in Google Cloud Platform (GCP).
+
+In this post, we’ll break down what a VPC is, why it’s important, and how it works in Google Cloud, along with code snippets to help you get started.
+
+## What is a Virtual Private Cloud (VPC)?
+
+A Virtual Private Cloud (VPC) is a secure, individual, private compute model hosted within a public cloud. It allows organizations to create an isolated network environment within Google Cloud to securely connect and manage their resources.
+
+Think of it as a private section of the cloud where you control the network, security, and connectivity.
+
+## Why Use a VPC in Google Cloud?
+
+Google Cloud VPCs provide several advantages:
+
+- ✅ Security & Isolation – Keep your resources private while defining strict access controls.
+- ✅ Scalability – Easily scale networking across regions and zones.
+- ✅ Flexibility – Choose between using a default VPC or creating a custom VPC tailored to your needs.
+- ✅ Global Reach – Unlike traditional on-premise networks, Google Cloud VPCs are global by default, enabling seamless communication across resources.
+
+## What Can a VPC Do?
+
+Once you set up a VPC in Google Cloud, you can:
+
+- 🚀 Run applications and workloads in a secure environment.
+- 🗄️ Store and manage data with cloud databases and storage services.
+- 🌍 Host websites and web applications.
+- 🔗 Connect resources across multiple regions and zones seamlessly.
+
+## How to Create a VPC in Google Cloud (with Code Snippets!)
+
+There are two ways to create a VPC:
+
+1️⃣ Using the Google Cloud CLI (gcloud)
+2️⃣ Using Terraform (Infrastructure as Code)
+
+1. Creating a VPC Using Google Cloud CLI (gcloud)
+
+Run the following command in your terminal to create a custom VPC in Google Cloud:
+
+```bash
+gcloud compute networks create my-custom-vpc \
+    --subnet-mode=custom \
+    --bgp-routing-mode=global
+```
+
+This will create a VPC named my-custom-vpc with custom subnet mode (so you define your own subnets instead of using Google’s default settings).
+
+Now, let’s create a subnet inside this VPC:
+
+```bash
+gcloud compute networks subnets create my-subnet \
+    --network=my-custom-vpc \
+    --range=10.0.0.0/24 \
+    --region=asia-east1
+```
+
+Here’s what happens:
+- ✔ Subnet Name: my-subnet
+- ✔ VPC: my-custom-vpc
+- ✔ IP Range: 10.0.0.0/24
+- ✔ Region: asia-east1
+
+Now, if you want to allow SSH access, create a firewall rule:
+```bash
+gcloud compute firewall-rules create allow-ssh \
+    --network=my-custom-vpc \
+    --allow=tcp:22
+```
+
+2. Creating a VPC Using Terraform
+
+Terraform allows you to manage infrastructure as code. Here’s how you can define a VPC in Terraform:
+
+```hcl
+resource "google_compute_network" "vpc_network" {
+  name                    = "my-custom-vpc"
+  auto_create_subnetworks = false
+  routing_mode            = "GLOBAL"
+}
+```
+
+Now, define a subnet inside this VPC:
+
+```hcl
+resource "google_compute_subnetwork" "subnet" {
+  name          = "my-subnet"
+  network       = google_compute_network.vpc_network.id
+  ip_cidr_range = "10.0.0.0/24"
+  region        = "asia-east1"
+}
+```
+
+And if you want to allow SSH access, define a firewall rule:
+
+```hcl
+resource "google_compute_firewall" "allow_ssh" {
+  name    = "allow-ssh"
+  network = google_compute_network.vpc_network.id
+
+  allow {
+    protocol = "tcp"
+    ports    = ["22"]
+  }
+}
+```
+
+Apply the Terraform Configuration
+
+After writing this Terraform file (main.tf), run the following commands:
+
+```bash
+terraform init
+terraform apply -auto-approve
+```
+
+## Key Takeaways from This Setup
+
+- ✅ Subnets can span multiple zones – You don’t need a subnet for each zone; a single subnet can stretch across multiple zones within a region.
+- ✅ Different zones but technically neighbors – Even though resources are in different zones, they are logically close in the same subnet.
+- ✅ Resilience to disruptions – If one zone fails, workloads can shift to another.
+- ✅ Simple and efficient layout – Ensures smooth communication between resources.
+
+### Why Google Cloud VPC is a Game Changer
+
+Unlike traditional networking setups, Google Cloud VPCs are global by nature. This means you can:
+	-	Easily expand networking across multiple regions without complex configurations.
+	-	Improve reliability by distributing workloads across different zones.
+	-	Reduce latency by keeping traffic within Google’s high-speed global infrastructure.
+
+## Final Thoughts
+
+Google Cloud VPCs provide the flexibility, scalability, and security needed for modern cloud applications. Whether you are a startup looking to host a website or an enterprise running a global-scale application, VPCs offer the best of both private and public cloud networking.
+
+- 💡 Ready to set up your own VPC?
+- ✅ Try the Google Cloud CLI (gcloud) or
+- ✅ Use Terraform for infrastructure as code!
+
+Let me know if you have any questions, or drop a comment if you want more real-world VPC scenarios! 🚀
+
+<Comments />
