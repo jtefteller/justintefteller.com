@@ -1,0 +1,120 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import mindMap from '@/images/promptengineering.png'
+import { Comments } from '@/components/Comments'
+
+export const article = {
+  author: 'Justin Tefteller',
+  date: '2025-02-26',
+  title: 'Prompt Engineering Guide',
+  description: 'Prompt Engineering Guide',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+<Image src={mindMap} alt="Google Cloud Network Connectivity Options" />
+
+## Prompt Engineering Guide
+
+AI is only as smart as the questions we ask it. This is where prompt engineering comes in—a craft that transforms vague instructions into precise, effective AI responses. But what makes a great prompt? How do large language models (LLMs) like ChatGPT process them? Let’s dive into the foundations of prompt engineering and uncover best practices to harness AI’s full potential.
+
+### What Is a Prompt?
+
+A prompt is the input we give to an AI model to generate a meaningful response. Think of it as a well-structured question or instruction that guides the AI to produce useful, accurate, and context-aware results.
+
+In the world of prompt engineering, a prompt consists of two key parts:
+
+### Preamble (Setup) 
+The preamble sets the stage for the AI’s response by including:
+	-	Context – Relevant background information.
+	-	Instruction/Task – A clear directive for what you want.
+	-	Examples – (Optional) Helps the AI recognize patterns.
+
+### Input (What to Predict)
+This is the main user query—the part where AI makes a prediction or generates text based on the preamble.
+
+Visualizing a Prompt Structure
+```plaintext
+[Preamble]
+- Context
+- Instruction/Task
+- Example(s)
+
+[Input]
+- The main thing you want the AI to predict
+```
+
+Example:
+```plaintext
+“I want you to act as a business professor. I’ll give you a term, and you must correctly explain its meaning. What is ROI?”
+```
+Here, the AI understands its role (a business professor), the task (explain terms accurately), and the input (define “ROI”).
+
+## Different Types of Prompting
+
+Not all prompts are created equal. There are several strategies to improve AI responses:
+
+### 1. Zero-shot Prompting
+	```plaintext
+	What is the capital of France?
+	```
+
+	-	No examples provided.
+	-	AI must rely on prior knowledge.
+
+### 2. One-shot Prompting
+	```plaintext
+	Tell me the capital of France.
+	Italy: Rome. 
+	France: ___?
+	```
+
+	-	One example given to guide the pattern.
+
+### 3. Few-shot Prompting
+	```plaintext
+	Tell me the capital of France.
+	Italy: Rome. 
+	Japan: Tokyo. 
+	France: ___?
+	```
+	-	Multiple examples help AI understand structure before answering.
+
+### 4. Role Prompting
+
+	```plaintext
+	I want you to act as a cybersecurity expert. Explain how phishing attacks work.
+	```
+
+	-	Instructs AI to assume a persona for more specialized and context-aware responses.
+
+## Pre-training vs. Fine-tuning: Why AI Gets Smarter
+
+Pre-training - AI is trained on massive datasets to understand language and patterns. This builds general knowledge but lacks domain-specific expertise.
+
+Fine-tuning - AI is further trained on a smaller dataset to refine its accuracy for specific tasks. Example: An AI model fine-tuned for medical diagnosis will outperform a general LLM in healthcare topics.
+
+**Warning: AI Hallucinations**
+If AI lacks specific knowledge, it may “hallucinate” (generate incorrect or nonsensical responses). Providing clear prompts and examples minimizes this risk.
+
+## Best Practices for Writing Effective Prompts
+ 1.	Be detailed & explicit – The clearer your instructions, the better the response.
+ 2.	Keep sentences precise – Short, structured prompts lead to more accurate results.
+ 3.	Tell AI what NOT to do – Example: “Do not include technical jargon in your response.”
+ 4.	Give fallback instructions – Example: “If you don’t know the answer, say ‘I’m unsure’ rather than guessing.”
+ 5.	Use Role Prompting – Assign a persona for expert-level responses.
+
+## Conclusion: The Power of a Well-Designed Prompt
+
+Prompt engineering isn’t just about asking questions—it’s about asking the right questions. By structuring prompts effectively, using examples, and applying role-based techniques, you can dramatically improve AI responses.
+
+Want to experiment? Try tweaking your prompts today and see how AI adapts. Let’s push the boundaries of what’s possible with smarter, sharper prompts.
+
+What are your favorite prompting techniques? Drop a comment below and let’s discuss!
+
+<Comments />
