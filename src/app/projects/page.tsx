@@ -6,6 +6,7 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import logoKnightsCreek from '@/images/logos/Knights Creek Logo.png'
 import logoAAPest from '@/images/logos/aa-pest.png'
 import logoTinyUrl from '@/images/logos/tinyurl.webp'
+import devotional from '@/images/logos/devotional.png'
 
 const projects = [
   {
@@ -21,6 +22,16 @@ const projects = [
       'A outdoor adventure company that specializes in guided tours and lodging.',
     link: { href: 'https://knights-creek.com', label: 'knights-creek.com' },
     logo: logoKnightsCreek,
+  },
+  {
+    name: 'Devotional',
+    description:
+      "A place to share your thoughts and learn God's word with a daily devotional.",
+    link: {
+      href: 'https://devotional.justintefteller.com',
+      label: 'devotional.justintefteller.com',
+    },
+    logo: devotional,
   },
   {
     name: 'Tiny Url',
