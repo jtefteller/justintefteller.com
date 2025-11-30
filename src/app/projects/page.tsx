@@ -33,16 +33,6 @@ const projects = [
     },
     logo: devotional,
   },
-  {
-    name: 'Tiny Url',
-    description:
-      'A url shortening service that allows users to create custom short urls.',
-    link: {
-      href: 'https://tinyurl.justintefteller.com',
-      label: 'tinyurl.justintefteller.com',
-    },
-    logo: logoTinyUrl,
-  },
 ]
 
 function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
